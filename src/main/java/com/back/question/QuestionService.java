@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 @RequiredArgsConstructor
 @Service
@@ -32,5 +35,10 @@ public class QuestionService {
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
         this.questionRepository.save(q);
+    }
+
+    public Page<Question> getList(int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.questionRepository.findAll(pageable);
     }
 }
