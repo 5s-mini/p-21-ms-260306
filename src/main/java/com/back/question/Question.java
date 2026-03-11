@@ -1,6 +1,7 @@
 package com.back.question;
 
 import com.back.answer.Answer;
+import com.back.user.SiteUser;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,4 +36,6 @@ public class Question {
 
     @ManyToOne
     private SiteUser author;
+
+    private LocalDateTime modifyDate;
 }
