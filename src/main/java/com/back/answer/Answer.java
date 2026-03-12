@@ -1,11 +1,13 @@
 package com.back.answer;
 
 import com.back.question.Question;
+import com.back.user.SiteUser;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import lombok.Getter;
@@ -28,4 +30,7 @@ public class Answer {
     private Question question;
 
     private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
